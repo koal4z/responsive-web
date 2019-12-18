@@ -142,7 +142,7 @@ h3 {
 
 .foot {
   margin-top: 33px;
-  margin-bottom: 44px;
+  margin-bottom: 120px;
 }
 .foot li {
   font-size: 1.1rem;
@@ -221,4 +221,9 @@ button:hover {
   .content > .col-sm-6 {
     padding: 0 15px;
   }
+  .foot ul li{
+    display: flex;
+    flex-direction:column;
+  }
+
 }
