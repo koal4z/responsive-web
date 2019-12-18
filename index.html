@@ -19,32 +19,68 @@
       href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap"
       rel="stylesheet"
     />
+
+    <script src="https://cdn.jsdelivr.net/npm/lax.js"></script>
+    <script>
+      window.onload = function() {
+        lax.setup(); // init
+
+        const updateLax = () => {
+          lax.update(window.scrollY);
+          window.requestAnimationFrame(updateLax);
+        };
+
+        window.requestAnimationFrame(updateLax);
+        console.log(window.scrollY);
+      };
+    </script>
+    <script>
+      lax.addPreset("test", function() {
+        return {
+          "data-lax-opacity": "500 1,600 0 ",
+          "data-lax-translate-y": "500 0,1500 600 "
+        };
+      });
+    </script>
     <title>Document</title>
   </head>
 
   <body>
     <div class="container-fluid">
       <div class="top-line row">
-        <img src="image-assets\logo.png" alt="" />
-        <h1>Place your logo here</h1>
+        <img
+          src="image-assets\logo.png"
+          class="lax"
+          data-lax-translate-x="0 0, 100 -50"
+          alt=""
+        />
+        <h1 class="lax" data-lax-translate-x="0 0, 100 -50">
+          Place your logo here
+        </h1>
       </div>
       <div class="container p-0">
         <div class="header-top row justify-content-center">
-          <h1>LATEST NEWS</h1>
+          <h1 class="lax" data-lax-preset="fadeInOut">LATEST NEWS</h1>
         </div>
-        <div class="header-top row justify-content-center">
+        <div
+          class="header-top row justify-content-center lax"
+          data-lax-preset="fadeInOut"
+        >
           <h5>Stay in the loop. See what we’re up to this month!</h5>
         </div>
-        <div class="img-header row">
+        <div class="img-header row lax" data-lax-preset="fadeInOut">
           <img class="img-fluid" src="image-assets\img.png" alt="" />
         </div>
-        <div class="content row justify-content-center">
+        <div
+          class="content row justify-content-center lax"
+          data-lax-translate-x="0 -1000,500 0"
+        >
           <div class="col-sm-6">
             <h2>what's new</h2>
             <img class="img-fluid" src="image-assets\img-1.jpg" alt="" />
           </div>
           <div
-            class="content-right col-sm-6 p-0 d-flex flex-column align-items-start justify-content-end"
+            class="content-right col-sm-6 p-0 d-flex flex-column align-items-start justify-content-end "
           >
             <h3>football season is here</h3>
             <p>
@@ -54,9 +90,12 @@
             <button>READ MORE</button>
           </div>
         </div>
-        <div class="content row justify-content-center">
+        <div
+          class="content row justify-content-center lax"
+          data-lax-translate-x="0 1200,900 0"
+        >
           <div
-            class="content-left col-sm-6 p-0  d-flex flex-column align-items-start justify-content-end"
+            class="content-left col-sm-6 p-0  d-flex flex-column align-items-start justify-content-end "
           >
             <h3>DANCE TROUPE AUDITIONS</h3>
             <p>
@@ -69,7 +108,10 @@
             <img class="img-fluid" src="image-assets\img-2.jpg" alt="" />
           </div>
         </div>
-        <div class="content row justify-content-center">
+        <div
+          class="content row justify-content-center lax"
+          data-lax-preset="test"
+        >
           <div class="col-sm-6">
             <img src="image-assets\img-3.jpg" alt="" />
           </div>
@@ -85,28 +127,30 @@
           </div>
         </div>
       </div>
-      <div class="follow1 row justify-content-center">
-        <h5>Follow us on social media</h5>
-      </div>
-      <div class="follow2 row justify-content-center">
-        <a href=""><img src="image-assets\facebook.png" alt=""/></a>
-        <a href=""><img src="image-assets\google-plus.png" alt=""/></a>
+      <footer class="lax" data-lax-preset="fadeInOut">
+        <div class="follow1 row justify-content-center">
+          <h5>Follow us on social media</h5>
+        </div>
+        <div class="follow2 row justify-content-center">
+          <a href=""><img src="image-assets\facebook.png" alt=""/></a>
+          <a href=""><img src="image-assets\google-plus.png" alt=""/></a>
 
-        <a href=""><img src="image-assets\ig.png" alt=""/></a>
-        <a href=""><img src="image-assets\linkedin.png" alt=""/></a>
-        <a href=""><img src="image-assets\twitter.png" alt=""/></a>
-      </div>
-      <div class="foot row justify-content-center">
-        <ul class="list-inline">
-          <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-          <li class="list-inline-item"><a href="#">Terms of Use</a></li>
-          <li class="list-inline-item"><a href="#">Contact Us</a></li>
-          <li class="list-inline-item">
-            <a href="#">Manage Email Preferences</a>
-          </li>
-          <li class="list-inline-item"><a href="#">Unsubscribe</a></li>
-        </ul>
-      </div>
+          <a href=""><img src="image-assets\ig.png" alt=""/></a>
+          <a href=""><img src="image-assets\linkedin.png" alt=""/></a>
+          <a href=""><img src="image-assets\twitter.png" alt=""/></a>
+        </div>
+        <div class="foot row justify-content-center">
+          <ul class="list-inline">
+            <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+            <li class="list-inline-item"><a href="#">Terms of Use</a></li>
+            <li class="list-inline-item"><a href="#">Contact Us</a></li>
+            <li class="list-inline-item">
+              <a href="#">Manage Email Preferences</a>
+            </li>
+            <li class="list-inline-item"><a href="#">Unsubscribe</a></li>
+          </ul>
+        </div>
+      </footer>
     </div>
   </body>
 </html>
